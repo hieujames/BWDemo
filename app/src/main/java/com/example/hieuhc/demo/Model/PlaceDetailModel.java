@@ -12,11 +12,8 @@ public class PlaceDetailModel {
     private String formattedPhoneNumber;
     private String icon;
     private String id;
-
     private String internationalPhoneNumber;
-
     private String name;
-
     private String placeId;
     private Integer rating;
     private String reference;
@@ -25,7 +22,6 @@ public class PlaceDetailModel {
     private String url;
     private Integer utcOffset;
     private String vicinity;
-
     private LocationModel locationModel;
 
 
@@ -155,10 +151,5 @@ public class PlaceDetailModel {
 
     public void setLocationModel(LocationModel locationModel) {
         this.locationModel = locationModel;
-    }
-
-    class LocationModel {
-        double lat;
-        double lng;
     }
 }

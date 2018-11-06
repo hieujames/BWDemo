@@ -1,3 +1,5 @@
 local.properties
 build
 proguard-rules.pro
+.gradle
+.idea

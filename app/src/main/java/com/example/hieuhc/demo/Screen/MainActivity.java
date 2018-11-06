@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.hieuhc.demo.Model.LocationModel;
 import com.example.hieuhc.demo.Model.PlaceDetailModel;
 import com.example.hieuhc.demo.R;
 
@@ -85,7 +86,27 @@ public class MainActivity extends AppCompatActivity {
 
             PlaceDetailModel placeDetailModel = new PlaceDetailModel();
             try {
-                placeDetailModel.setId(jsonObject.getString("id"));
+                JSONObject resultObject = jsonObject.getJSONObject("result");
+                placeDetailModel.setId(resultObject.getString("id"));
+                placeDetailModel.setName(resultObject.getString("name"));
+                placeDetailModel.setAdrAddress(resultObject.getString("adr_address"));
+                placeDetailModel.setFormattedAddress(resultObject.getString("formatted_address"));
+                placeDetailModel.setFormattedPhoneNumber(resultObject.getString("formatted_phone_number"));
+                placeDetailModel.setPlaceId(resultObject.getString("place_id"));
+                placeDetailModel.setIcon(resultObject.getString("icon"));
+                //placeDetailModel.setTypes(jsonObject.accumulate("types", ));
+                placeDetailModel.setUrl(resultObject.getString("url"));
+                placeDetailModel.setInternationalPhoneNumber(resultObject.getString("international_phone_number"));
+                placeDetailModel.setVicinity(resultObject.getString("vicinity"));
+                JSONObject geoObject= resultObject.getJSONObject("geometry");
+                JSONObject locObject= geoObject.getJSONObject("location");
+                double lat = locObject.getDouble("lat");
+                double lng = locObject.getDouble("lng");
+                LocationModel locationModel = new LocationModel();
+                locationModel.setLat(locObject.getDouble("lat"));
+                locationModel.setLng(locObject.getDouble("lng"));
+                placeDetailModel.setLocationModel(locationModel);
+
 
             } catch (JSONException e) {
                 e.printStackTrace();
