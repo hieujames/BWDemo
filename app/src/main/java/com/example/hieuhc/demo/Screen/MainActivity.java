@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                     placeList.add(placeDetailModel);
                 }
 
-                int x = 0;
+                //int x = 0;
 
 
             } catch (JSONException e) {
